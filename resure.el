@@ -54,10 +54,8 @@
     '(standard-indent 2)
     '(ns-antialias-text t))
 
-(defvar eshell-path-env (getenv "PATH"))
 
 (menu-bar-mode 0)
-
 
 ;; Org Mode Config
 
