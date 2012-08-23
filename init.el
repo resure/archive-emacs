@@ -12,7 +12,7 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings
                       starter-kit-eshell starter-kit-js starter-kit-ruby
                       ruby-mode inf-ruby zenburn-theme markdown-mode
-                      yaml-mode json erlang coffee-mode rspec-mode))
+                      yaml-mode json erlang coffee-mode rspec-mode haskell-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
