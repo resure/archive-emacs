@@ -21,8 +21,8 @@
 
 
 ;; Rinari
-(add-to-list 'load-path "~/.emacs.d/vendor/rinari")
-(require 'rinari)
+;; (add-to-list 'load-path "~/.emacs.d/vendor/rinari")
+;; (require 'rinari)
 
 ;; Evil mode
 ;; (add-to-list 'load-path "~/.emacs.d/vendor/evil")
@@ -46,7 +46,7 @@
                         ;; (font . "-apple-Fixedsys_Excelsior_3.01-medium-normal-normal-*-16-*-*-*-p-0-iso10646-1")
                         ;; (font . "-apple-Bitstream_Vera_Sans_Mono-medium-normal-normal-*-15-*-*-*-m-0-iso10646-1")
                         ;; (font . "-apple-Droid_Sans_Mono-medium-normal-normal-*-13-*-*-*-m-0-iso10646-1")
-                        (font . "-apple-DejaVu_Sans_Mono-medium-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+                        ;; (font . "-apple-DejaVu_Sans_Mono-medium-normal-normal-*-13-*-*-*-m-0-iso10646-1")
 )))
     '(ruby-deep-arglist nil)
     '(ruby-deep-indent-paren nil)
@@ -68,7 +68,14 @@
                              "~/org/home.org"))
 
 (setq browse-url-browser-function 'browse-default-macosx-browser)
-(setq ispell-program-name "aspell")
+
+(eval-after-load "ispell"
+    (progn
+      (setq ispell-dictionary "en_US"
+	    ispell-extra-args '("-a" "-i" "utf-8") ; aspell doesn't understand -i utf-8, hunspell needs it
+	    ispell-silently-savep t)))
+
+(setq ispell-program-name "hunspell")
 
 
 (defun chomp (str)
@@ -89,4 +96,5 @@
 
 
 ;; Theme
-(load-theme 'twilight)
+;; (load-theme 'twilight)
+
